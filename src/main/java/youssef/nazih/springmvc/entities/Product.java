@@ -1,4 +1,4 @@
-package entities;
+package youssef.nazih.springmvc.entities;
 
 
 import jakarta.persistence.Entity;
