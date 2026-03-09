@@ -13,6 +13,7 @@
         <th>Name</th>
         <th>Price</th>
         <th>Quantity</th>
+        <th>Delete</th>
         </thead>
         <tbody>
         <tr th:each="p:${productList}">
@@ -26,6 +27,33 @@
         </tr>
         </tbody>
     </table>
+    <form method="POST" th:action="@{/add}">
+        <table class="table">
+            <thead>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Add</th>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    <input th:value="${productToBeAdded.name}" name="name" type="text" class="form-control" placeholder="Name">
+                    <span class="text-danger" th:errors="${productToBeAdded.name}"></span>
+                </td>
+                <td>
+                    <input th:value="${productToBeAdded.price}" name="price" type="text" class="form-control" placeholder="Price">
+                    <span class="text-danger" th:errors="${productToBeAdded.price}"></span>
+                </td>
+                <td>
+                    <input th:value="${productToBeAdded.quantity}" name="quantity" type="text" class="form-control" placeholder="Quantity">
+                    <span class="text-danger" th:errors="${productToBeAdded.quantity}"></span>
+                </td>
+                <td><button class="btn btn-primary" type="submit">Add product</button></td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
 </div>
 </body>
 </html>
