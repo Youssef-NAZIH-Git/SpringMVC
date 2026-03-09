@@ -3,12 +3,11 @@ package youssef.nazih.springmvc;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.security.autoconfigure.SecurityAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import youssef.nazih.springmvc.entities.Product;
 import youssef.nazih.springmvc.repository.ProductRepository;
 
-@SpringBootApplication(exclude = { SecurityAutoConfiguration.class })
+@SpringBootApplication
 public class SpringmvcApplication {
 
     public static void main(String[] args) {
