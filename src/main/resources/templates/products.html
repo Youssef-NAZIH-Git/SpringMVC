@@ -1,12 +1,15 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout1"
+>
 <head>
     <meta charset="UTF-8">
     <title>Products Page</title>
     <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/5.3.8/css/bootstrap.min.css">
 </head>
 <body>
-<div>
+<div layout:fragment="content1">
     <table class="table table-striped table-hover">
         <thead>
         <th>ID</th>
