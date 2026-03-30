@@ -1,4 +1,4 @@
-# Gestionnaire de Produits — Spring MVC
+# Gestionnaire de Produits Spring MVC
  
 > Application web de gestion de produits construite avec Spring Boot, Thymeleaf et Spring Security.
  
