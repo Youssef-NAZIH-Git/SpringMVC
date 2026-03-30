@@ -32,7 +32,7 @@ public class ProductController {
         return "redirect:/index";
     }
 
-    @PostMapping("/add")
+    @PostMapping("/saveProduct")
     public String add(@Valid Product product, BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()){
             model.addAttribute("errorMessage", Objects.requireNonNull(bindingResult.getFieldError()).getDefaultMessage());
@@ -42,4 +42,15 @@ public class ProductController {
         return "redirect:/index";
     }
 
+
+    @GetMapping("/")
+    public String home() {
+        return "redirect:/index";
+    }
+
+    @GetMapping("/newProduct")
+    public String newProduct(Model model) {
+        model.addAttribute("productToBeAdded", new Product());
+        return "new-product";
+    }
 }
