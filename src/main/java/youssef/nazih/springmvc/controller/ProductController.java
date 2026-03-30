@@ -32,7 +32,7 @@ public class ProductController {
         return "redirect:/index";
     }
 
-    @PostMapping("/saveProduct")
+    @PostMapping("/save")
     public String add(@Valid Product product, BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()){
             model.addAttribute("errorMessage", Objects.requireNonNull(bindingResult.getFieldError()).getDefaultMessage());
