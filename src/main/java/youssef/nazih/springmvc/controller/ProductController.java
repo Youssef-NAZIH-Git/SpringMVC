@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import youssef.nazih.springmvc.entities.Product;
 import youssef.nazih.springmvc.repository.ProductRepository;
 
+import java.util.List;
 import java.util.Objects;
 
 @Controller
@@ -20,8 +21,13 @@ public class ProductController {
     public ProductRepository productRepository;
 
     @GetMapping("/index")
-    public String index(Model model) {
-        model.addAttribute("productList", productRepository.findAll());
+    public String index(Model model, @RequestParam(defaultValue = "") String search) {
+
+        List<Product> products = search.isEmpty()
+                ? productRepository.findAll()
+                : productRepository.findByNameContainingIgnoreCase(search);
+
+        model.addAttribute("productList", products);
         model.addAttribute("productToBeAdded", new Product());
         return "products";
     }
