@@ -16,6 +16,7 @@
         <th>Name</th>
         <th>Price</th>
         <th>Quantity</th>
+        <th>Update</th>
         <th>Delete</th>
         </thead>
         <tbody>
@@ -24,6 +25,9 @@
             <td th:text="${p.name}"></td>
             <td th:text="${p.price}"></td>
             <td th:text="${p.quantity}"></td>
+            <td>
+                <a class="btn btn-primary" th:href="@{/update(id=${p.id})}">Update</a>
+            </td>
             <td>
                 <a class="btn btn-danger" th:href="@{/delete(id=${p.id})}">Delete</a>
             </td>

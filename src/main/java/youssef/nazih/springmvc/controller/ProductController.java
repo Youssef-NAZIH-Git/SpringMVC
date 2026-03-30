@@ -53,4 +53,11 @@ public class ProductController {
         model.addAttribute("productToBeAdded", new Product());
         return "new-product";
     }
+
+    @GetMapping("/update")
+    public String updateProduct(Model model, @RequestParam(name = "id") Long id) {
+        Product product = productRepository.findById(id).orElseThrow(RuntimeException::new);
+        model.addAttribute("productToBeUpdated", product);
+            return "update-product";
+    }
 }

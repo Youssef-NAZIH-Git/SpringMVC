@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout1"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>New Product</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/5.3.8/css/bootstrap.min.css">
+</head>
+<body>
+<div layout:fragment="content1">
+    <form method="POST" th:action="@{/save}">
+        <input type="hidden" name="id" th:value="${productToBeUpdated.id}">
+        <table class="table">
+            <thead>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Add</th>
+            </thead>
+            <tbody>
+            <tr>
+                <td style="font-weight: bolder" th:text="${productToBeUpdated.name}"></td>
+                <td style="font-weight: bolder" th:text="${productToBeUpdated.price}"></td>
+                <td style="font-weight: bolder" th:text="${productToBeUpdated.quantity}"></td>
+                <td></td>
+            </tr>
+            <tr></tr>
+            <tr><td colspan="3" style="text-align: center;">UPDATE TO: </td></tr>
+            <tr></tr>
+            <tr>
+                <td>
+                    <input th:value="${productToBeUpdated.name}" name="name" type="text" class="form-control" placeholder="Name">
+                    <span class="text-danger" th:errors="${productToBeUpdated.name}"></span>
+                </td>
+                <td>
+                    <input th:value="${productToBeUpdated.price}" name="price" type="text" class="form-control" placeholder="Price">
+                    <span class="text-danger" th:errors="${productToBeUpdated.price}"></span>
+                </td>
+                <td>
+                    <input th:value="${productToBeUpdated.quantity}" name="quantity" type="text" class="form-control" placeholder="Quantity">
+                    <span class="text-danger" th:errors="${productToBeUpdated.quantity}"></span>
+                </td>
+                <td><button class="btn btn-primary" type="submit">Update product</button></td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
+</body>
+</html>
